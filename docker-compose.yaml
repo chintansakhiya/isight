@@ -3,9 +3,9 @@ services:
   postgresdb:
     image: postgres:15.2-alpine
     environment:
-      POSTGRES_USER: golang-api
-      POSTGRES_PASSWORD: golang-api
-      POSTGRES_DB: golang-api
+      POSTGRES_USER: isight
+      POSTGRES_PASSWORD: isight
+      POSTGRES_DB: isight
     ports:
     - 5432:5432
     volumes:
@@ -16,7 +16,7 @@ services:
     restart: always
     ports:
     - 8080:8080
-    environment: 
+    environment:
     - ADMINER_DEFAULT_SERVER=postgresdb
     depends_on:
     - postgresdb
