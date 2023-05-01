@@ -12,6 +12,6 @@ func Init(cfg config.AppConfig, logger *zap.Logger) error {
 	apiCmd := GetAPICommandDef(cfg, logger)
 
 	rootCmd := &cobra.Command{Use: "golang-api"}
-	rootCmd.AddCommand(&migrationCmd, &apiCmd)
+	rootCmd.AddCommand(&migrationCmd, &apiCmd ,seed)
 	return rootCmd.Execute()
 }
