@@ -1,31 +1,54 @@
-# isight
+### Generate mattermost webhook
 
-### Pre-requisite for pre-commit
-```shell
-# golangci-lint installation
-$> go get github.com/golangci/golangci-lint/cmd/golangci-lint@v1.33.0
+    follow instructions [hear](https://developers.mattermost.com/integrate/webhooks/incoming/) for generate webhook
 
-# gogetsum installation
-$> go get gotest.tools/gotestsum
+### set environment variables
 
-# gocyclo installation
-$> go install github.com/fzipp/gocyclo/cmd/gocyclo@latest
+    ```
+    export MATTERMOSTWEBHOOK='your webhook endpoint'
 
-# goimport installation
-$> go install golang.org/x/tools/cmd/goimports@latest
+    # link should be fleetdm.com/software/manage
+    export TITLELINK='link'
+    ```
 
-# gocritic installation
-$> go install -v github.com/go-critic/go-critic/cmd/gocritic@latest
+### Run flogo app
 
-# Pre-commit installation
-$> pip install pre-commit
+    follow instructions [hear](https://github.com/Improwised/isight/issues/25) for run flogo app
+    this will generate api `POST hostname:port/vulnerability`
 
-# Initialize pre-commit
-$> pre-commit
-```
-
-### Build and run flogo app 
-    flow step [hear](Improwised/isight/issues/25) to run flogo app.
-
+### api 
+    Request body
 
     
+    {
+    "timestamp": "0000-00-00T00:00:00Z",
+    "vulnerability": {
+    "cve": "CVE-2014-9471",
+    "details_link": "https://nvd.nist.gov/vuln/detail/CVE-2014-9471",
+    "hosts_affected": [
+              {
+                "id": 1,
+                "display_name": "macbook-1",
+                "url": "https://fleet.example.com/hosts/1"
+                },
+                {
+                "id": 2,
+                "display_name": "macbook-2",
+                "url": "https://fleet.example.com/hosts/2"
+                }
+            ]
+        }
+    }
+
+     
+    response
+    ![image](https://github.com/chintansakhiya/isight/assets/123356373/0f5e7599-39d7-4810-b3fb-7ba2cdbadb61)
+    
+
+### Generate fleet-dm webhook
+
+    Select software > Manage automations
+    Under Manage automations select webhook.
+    Under Destination URL past flogo generated api
+
+ 
