@@ -4,12 +4,12 @@
 
 ### set environment variables
 
-    ```
+    
     export MATTERMOSTWEBHOOK='your webhook endpoint'
 
     # link should be fleetdm.com/software/manage
     export TITLELINK='link'
-    ```
+    
 
 ### Run flogo app
 
